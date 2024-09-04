@@ -15,9 +15,13 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Purchase {
+    @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID purchaseId;
+
+    @JoinColumn(name = "client_id")
     private UUID clientId;
+
     private int value;
     private String date;
     private String cardNumber;

@@ -1,7 +1,6 @@
 package com.stone_payments.desafio_backend.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +9,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     private String title;
     private int price;
     private String zipcode;
