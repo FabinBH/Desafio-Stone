@@ -7,7 +7,9 @@ import com.stone_payments.desafio_backend.repositories.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -26,7 +28,7 @@ public class TransactionService {
         return purchaseRepository.findAll();
     }
 
-    public List<Purchase> getAllPurchasesById(UUID id) {
-        return purchaseRepository.findAllById(id);
+    public Optional<Purchase> getAllPurchasesById(Long id) {
+        return purchaseRepository.findById(id);
     }
 }

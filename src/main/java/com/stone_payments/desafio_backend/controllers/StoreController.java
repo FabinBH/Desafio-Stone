@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -32,7 +33,7 @@ public class StoreController {
     }
 
     @GetMapping(name = "/products")
-    public List<Product> returnAllProducts() {
+    public List<Product> allProducts() {
         return productService.getAllProducts();
     }
 
@@ -48,7 +49,7 @@ public class StoreController {
     }
 
     @GetMapping(name = "/history/{clientId}")
-    public List<Purchase> allPurchasesById(@PathVariable UUID clientId) {
-        return purchaseRepository.findAllById(clientId);
+    public Optional<Purchase> allPurchasesById(@PathVariable Long clientId) {
+        return purchaseRepository.findById(clientId);
     }
 }

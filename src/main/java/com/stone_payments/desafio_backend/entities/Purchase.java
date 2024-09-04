@@ -22,7 +22,7 @@ public class Purchase {
     @JoinColumn(name = "client_id")
     private UUID clientId;
 
-    private int value;
+    private int value_p;
     private String date;
     private String cardNumber;
 }

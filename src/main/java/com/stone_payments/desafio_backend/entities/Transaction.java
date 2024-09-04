@@ -17,5 +17,7 @@ public class Transaction {
 
     private String client_name;
     private int total_to_pay;
+
+    @OneToOne
     private CreditCard credit_card;
 }
