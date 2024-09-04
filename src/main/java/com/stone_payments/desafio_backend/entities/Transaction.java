@@ -15,7 +15,10 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID client_id;
 
+    @Column
     private String client_name;
+
+    @Column
     private int total_to_pay;
 
     @OneToOne(cascade = CascadeType.ALL)
