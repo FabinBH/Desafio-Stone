@@ -18,8 +18,8 @@ public class TransactionService {
     @Autowired
     private PurchaseRepository purchaseRepository;
 
-    public void buyItems(Transaction transaction) {
-        transactionRepository.save(transaction);
+    public Transaction buyItems(Transaction transaction) {
+        return transactionRepository.save(transaction);
     }
 
     public List<Purchase> getAllPurchases() {
