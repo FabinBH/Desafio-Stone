@@ -18,6 +18,7 @@ public class Transaction {
     private String client_name;
     private int total_to_pay;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "credit_card", referencedColumnName = "id")
     private CreditCard credit_card;
 }

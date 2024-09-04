@@ -15,7 +15,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(name = "/starstore")
+@RequestMapping("/starstore")
 public class StoreController {
     @Autowired
     private ProductService productService;
@@ -26,29 +26,29 @@ public class StoreController {
     @Autowired
     private PurchaseRepository purchaseRepository;
 
-    @PostMapping(name = "/product")
+    @PostMapping("/product")
     public ResponseEntity<Product> postProduct(@RequestBody Product product) {
         var newProduct = productService.addProduct(product);
         return ResponseEntity.ok(newProduct);
     }
 
-    @GetMapping(name = "/products")
+    @GetMapping("/products")
     public List<Product> allProducts() {
         return productService.getAllProducts();
     }
 
-    @PostMapping(name = "/buy")
+    @PostMapping("/buy")
     public ResponseEntity<Transaction> purchaseData(@RequestBody Transaction transaction) {
         var newTransaction = transactionService.buyItems(transaction);
         return ResponseEntity.ok(newTransaction);
     }
 
-    @GetMapping(name = "/history")
+    @GetMapping("/history")
     public List<Purchase> allPurchases() {
         return purchaseRepository.findAll();
     }
 
-    @GetMapping(name = "/history/{clientId}")
+    @GetMapping("/history/{clientId}")
     public Optional<Purchase> allPurchasesById(@PathVariable Long clientId) {
         return purchaseRepository.findById(clientId);
     }
